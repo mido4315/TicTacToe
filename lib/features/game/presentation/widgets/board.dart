@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:tic_tac_toe/core/constants/colors.dart';
 
+import '../../business logic/minimax_ai_player.dart';
 import '../../business logic/tic_tac_toe_provider.dart';
 
 class Board extends StatelessWidget {
@@ -22,6 +23,12 @@ class Board extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               state.tapped(index);
+              //int num = MiniMaxAIPlayer.easyMode(state);
+              int num = MiniMaxAIPlayer.easyMode(state);
+              Future.delayed(const Duration(milliseconds: 800), () {
+                state.tapped(num);
+              });
+
             },
             child: Container(
               decoration: BoxDecoration(
