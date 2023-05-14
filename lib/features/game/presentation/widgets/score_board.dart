@@ -10,38 +10,47 @@ class ScoreBoard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Consumer<TicTacToeProvider>(
       builder: (context, state, child) {
-        return Container(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Player O',
-                    style: MainFonts.customFontWhite,
-                  ),
-                  Text(
-                    state.oScore.toString(),
-                    style: MainFonts.customFontWhite,
-                  ),
-                ],
+        return Column(
+          mainAxisAlignment: MainAxisAlignment.end,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Player O',
+                      style: MainFonts.customFontWhite,
+                    ),
+                    Text(
+                      state.oScore.toString(),
+                      style: MainFonts.customFontWhite,
+                    ),
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Text(
+                      'Player X',
+                      style: MainFonts.customFontWhite,
+                    ),
+                    Text(
+                      state.xScore.toString(),
+                      style: MainFonts.customFontWhite,
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Text(
+              state.oTurn ? 'It\'s O Turn' : 'It\'s X Turn',
+              style: MainFonts.customFontWhite.copyWith(
+                fontSize: 20
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.end,
-                children: [
-                  Text(
-                    'Player X',
-                    style: MainFonts.customFontWhite,
-                  ),
-                  Text(
-                    state.xScore.toString(),
-                    style: MainFonts.customFontWhite,
-                  ),
-                ],
-              ),
-            ],
-          ),
+            ),
+          ],
         );
       },
     );
