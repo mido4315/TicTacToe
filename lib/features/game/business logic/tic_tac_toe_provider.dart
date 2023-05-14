@@ -17,6 +17,7 @@ class TicTacToeProvider extends ChangeNotifier {
       filledBoxes++;
       oTurn = !oTurn;
     } else if (!gameEnds && !oTurn && displayXO[index] == '') {
+
       displayXO[index] = 'X';
       filledBoxes++;
       oTurn = !oTurn;
