@@ -3,6 +3,8 @@ import 'package:provider/provider.dart';
 import '../../../core/constants/colors.dart';
 import '../business logic/tic_tac_toe_provider.dart';
 import 'widgets/board.dart';
+import 'widgets/result.dart';
+import 'widgets/score_board.dart';
 
 class GamePage extends StatelessWidget {
   const GamePage({Key? key}) : super(key: key);
@@ -18,16 +20,16 @@ class GamePage extends StatelessWidget {
           child: Column(
             children: [
               Expanded(
-                flex: 1,
-                child: Text(""),
+                flex: 2,
+                child: ScoreBoard(),
               ),
               Expanded(
-                flex: 3,
+                flex: 6,
                 child: Board(),
               ),
               Expanded(
-                flex: 1,
-                child: Text("mohamed"),
+                flex: 3,
+                child: Result(),
               ),
             ],
           ),
