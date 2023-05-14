@@ -36,7 +36,9 @@ class Board extends StatelessWidget {
                     state.displayXO[index],
                     style: TextStyle(
                       fontSize: 64,
-                      color: MainColor.primaryColor,
+                      color: state.matchedIndexes.contains(index)
+                          ? Colors.teal
+                          : MainColor.primaryColor,
                     ),
                   ),
                 ),
