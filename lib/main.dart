@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-import 'features/game/game_page.dart';
+import 'features/game/presentation/game_page.dart';
 
 
 void main() {
@@ -18,8 +19,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
+        fontFamily: GoogleFonts.coiny().fontFamily
       ),
-      home: const GamePage(),
+      home:  const GamePage(),
     );
   }
 }
