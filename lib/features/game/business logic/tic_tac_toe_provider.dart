@@ -8,8 +8,10 @@ class TicTacToeProvider extends ChangeNotifier {
   int oScore = 0;
   int xScore = 0;
   int filledBoxes = 0;
+  int whoWins = 1;
   bool winnerFound = false;
   bool gameEnds = false;
+  String currWinner = '';
 
   void tapped(int index) {
     if (!gameEnds && oTurn && displayXO[index] == '') {
@@ -17,18 +19,15 @@ class TicTacToeProvider extends ChangeNotifier {
       filledBoxes++;
       oTurn = !oTurn;
     } else if (!gameEnds && !oTurn && displayXO[index] == '') {
-
       displayXO[index] = 'X';
       filledBoxes++;
       oTurn = !oTurn;
     }
-
-    _winnerCheck();
+    winnerCheck(displayXO);
     notifyListeners();
   }
 
-  void _winnerCheck() {
-    // check first row
+  int winnerCheck(List<String> displayXO) {
     // check 1st row
     if (displayXO[0] == displayXO[1] &&
         displayXO[0] == displayXO[2] &&
@@ -43,7 +42,7 @@ class TicTacToeProvider extends ChangeNotifier {
         displayXO[3] == displayXO[5] &&
         displayXO[3] != '') {
       winnerValue = 'Player ${displayXO[3]} Wins!';
-      //matchedIndexes.addAll([3, 4, 5]);
+      matchedIndexes.addAll([3, 4, 5]);
       _updateScore(displayXO[3]);
     }
 
@@ -61,7 +60,7 @@ class TicTacToeProvider extends ChangeNotifier {
         displayXO[0] == displayXO[6] &&
         displayXO[0] != '') {
       winnerValue = 'Player ${displayXO[0]} Wins!';
-      //matchedIndexes.addAll([0, 3, 6]);
+      matchedIndexes.addAll([0, 3, 6]);
       _updateScore(displayXO[0]);
     }
 
@@ -101,15 +100,24 @@ class TicTacToeProvider extends ChangeNotifier {
       _updateScore(displayXO[6]);
     }
     if (!winnerFound && filledBoxes == 9) {
+      whoWins = 0;
       winnerValue = 'It\'s a Draw!';
     }
+    return whoWins;
   }
 
   void _updateScore(String winner) {
-    if (!gameEnds && winner == 'O') oScore++;
-    if (!gameEnds && winner == 'X') xScore++;
+    if (!gameEnds && winner == 'O') {
+      oScore++;
+      whoWins = 2;
+    }
+    if (!gameEnds && winner == 'X') {
+      xScore++;
+      whoWins = -2;
+    }
     winnerFound = true;
     gameEnds = true;
+    print("game ens : $gameEnds");
   }
 
   void clearBoard() {
@@ -120,6 +128,8 @@ class TicTacToeProvider extends ChangeNotifier {
     winnerFound = false;
     gameEnds = false;
     matchedIndexes.clear();
+    whoWins = 1;
+    oTurn = true;
     notifyListeners();
   }
 
