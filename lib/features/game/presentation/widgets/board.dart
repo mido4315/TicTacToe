@@ -23,12 +23,13 @@ class Board extends StatelessWidget {
           return GestureDetector(
             onTap: () {
               state.tapped(index);
-              //int num = MiniMaxAIPlayer.easyMode(state);
-              int num = MiniMaxAIPlayer.easyMode(state);
-              Future.delayed(const Duration(milliseconds: 800), () {
+              //int num = RandomPlayer.easyMode(state);
+              MiniMaxAIPlayer ai =
+                  MiniMaxAIPlayer(aiPlayer: 'X', humanPlayer: 'O');
+              int num = ai.getBestMove(state.displayXO);
+              Future.delayed(const Duration(milliseconds: 200), () {
                 state.tapped(num);
               });
-
             },
             child: Container(
               decoration: BoxDecoration(
