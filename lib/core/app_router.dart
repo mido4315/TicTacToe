@@ -12,11 +12,11 @@ abstract class AppRouter {
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: '/',
+        path: kSelectGame,
         builder: (context, state) => const HomePage(),
       ),
       GoRoute(
-        path: kSelectGame,
+        path: '/',
         builder: (context, state) => const SelectGame(),
       ),
       GoRoute(
@@ -24,7 +24,7 @@ abstract class AppRouter {
         builder: (context, state) => const GamePage(),
       ),
       GoRoute(
-        path: kGamePage,
+        path: kResultPage,
         builder: (context, state) => const ResultPage(),
       ),
     ],
