@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import 'features/game/presentation/game_page.dart';
+import 'package:tic_tac_toe/core/app_router.dart';
 
 
 void main() {
@@ -13,16 +12,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MaterialApp.router(
+      routerConfig: AppRouter.router,
       debugShowCheckedModeBanner: false,
       title: 'Tic Tac Toe',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
         useMaterial3: true,
-        fontFamily: GoogleFonts.coiny().fontFamily
+        fontFamily: GoogleFonts.coiny().fontFamily,
       ),
-      home:  const GamePage(),
     );
   }
 }
-
