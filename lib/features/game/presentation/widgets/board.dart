@@ -45,8 +45,8 @@ class Board extends StatelessWidget {
                     style: TextStyle(
                       fontSize: 64,
                       color: state.matchedIndexes.contains(index)
-                          ? Colors.teal
-                          : MainColor.primaryColor,
+                          ? MainColor.winnerColor
+                          : MainColor.accentColor,
                     ),
                   ),
                 ),
