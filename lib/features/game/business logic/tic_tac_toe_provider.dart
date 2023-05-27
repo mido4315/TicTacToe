@@ -1,24 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:tic_tac_toe/core/constants/images.dart';
 
 class TicTacToeProvider extends ChangeNotifier {
   List<String> displayXO = List<String>.generate(9, (index) => '');
+  List<String> displayXOIcons = List<String>.generate(9, (index) => '');
+
   List<int> matchedIndexes = [];
   bool oTurn = true;
   String winnerValue = '';
   int oScore = 0;
   int xScore = 0;
   int filledBoxes = 0;
-  int whoWins = 1;
   bool winnerFound = false;
   bool gameEnds = false;
-  String currWinner = '';
-
+  int whichMode = -1;
   void tapped(int index) {
     if (!gameEnds && oTurn && displayXO[index] == '') {
+      displayXOIcons[index] = MainImages.o1;
       displayXO[index] = 'O';
       filledBoxes++;
       oTurn = !oTurn;
     } else if (!gameEnds && !oTurn && displayXO[index] == '') {
+      displayXOIcons[index] = MainImages.x1;
       displayXO[index] = 'X';
       filledBoxes++;
       oTurn = !oTurn;
@@ -27,7 +30,7 @@ class TicTacToeProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  int winnerCheck(List<String> displayXO) {
+  void winnerCheck(List<String> displayXO) {
     // check 1st row
     if (displayXO[0] == displayXO[1] &&
         displayXO[0] == displayXO[2] &&
@@ -100,20 +103,16 @@ class TicTacToeProvider extends ChangeNotifier {
       _updateScore(displayXO[6]);
     }
     if (!winnerFound && filledBoxes == 9) {
-      whoWins = 0;
       winnerValue = 'It\'s a Draw!';
     }
-    return whoWins;
   }
 
   void _updateScore(String winner) {
     if (!gameEnds && winner == 'O') {
       oScore++;
-      whoWins = 2;
     }
     if (!gameEnds && winner == 'X') {
       xScore++;
-      whoWins = -2;
     }
     winnerFound = true;
     gameEnds = true;
@@ -122,13 +121,14 @@ class TicTacToeProvider extends ChangeNotifier {
 
   void clearBoard() {
     displayXO.clear();
+    displayXOIcons.clear();
     displayXO = List<String>.generate(9, (index) => '');
+    displayXOIcons = List<String>.generate(9, (index) => '');
     filledBoxes = 0;
     winnerValue = '';
     winnerFound = false;
     gameEnds = false;
     matchedIndexes.clear();
-    whoWins = 1;
     oTurn = true;
     notifyListeners();
   }
