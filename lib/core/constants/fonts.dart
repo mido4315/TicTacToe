@@ -5,6 +5,6 @@ class MainFonts {
   static var customFontWhite = const TextStyle(
     color: Colors.white,
     letterSpacing: 3,
-    fontSize: 28,
+    fontSize: 14,
   );
 }
