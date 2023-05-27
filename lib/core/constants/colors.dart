@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 class MainColor {
-  static Color primaryColor = const Color(0xFFff4b4b);
-  static Color secondaryColor = const Color(0xFFffca27);
+  static Color primaryColor = const Color(0xFF391898);
+  static Color secondaryColor = const Color(0xFFC4C4C4);
   static Color accentColor = primaryColor;
-  static Color winnerColor = const Color(0xFF4169e8);
+  static Color winnerColor = const Color(0xFF23C834);
   static const Gradient backgroundGradient = LinearGradient(
     begin: Alignment.topCenter,
     end: Alignment.center,
