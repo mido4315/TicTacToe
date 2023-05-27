@@ -12,25 +12,18 @@ class GamePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: MainColor.primaryColor,
-      body: ChangeNotifierProvider(
-        create: (context) => TicTacToeProvider(),
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: MainColor.backgroundGradient,
+        ),
         child: const Padding(
           padding: EdgeInsets.all(22.0),
           child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Expanded(
-                flex: 2,
-                child: ScoreBoard(),
-              ),
-              Expanded(
-                flex: 6,
-                child: Board(),
-              ),
-              Expanded(
-                flex: 3,
-                child: Result(),
-              ),
+              ScoreBoard(),
+              Board(),
+              Result(),
             ],
           ),
         ),

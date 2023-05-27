@@ -9,6 +9,7 @@ class CustomSelection extends StatelessWidget {
     required this.circleColor,
     required this.gameMode,
     required this.borderColor,
+    required this.onTap,
   });
 
   final Color containerColor;
@@ -16,10 +17,12 @@ class CustomSelection extends StatelessWidget {
   final Color borderColor;
   final String gameMode;
   final String imagePath;
+  final VoidCallback  onTap;
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      onTap: onTap,
       child: SizedBox(
         height: 125.h,
         width: 500.w,
@@ -45,10 +48,9 @@ class CustomSelection extends StatelessWidget {
                     child: Text(
                       " $gameMode",
                       style: const TextStyle(
-                        color: Colors.white,
-                        fontSize: 20,
-                        fontWeight: FontWeight.w500
-                      ),
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500),
                     ),
                   ),
                 ),
@@ -62,8 +64,9 @@ class CustomSelection extends StatelessWidget {
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(100),
                   color: circleColor,
-                  border: Border.all(color: borderColor,
-                  width: 2,
+                  border: Border.all(
+                    color: borderColor,
+                    width: 2,
                   ),
                 ),
                 child: Padding(
