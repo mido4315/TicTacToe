@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import '../features/coming soon/presentation/coming_soon.dart';
 import '../features/game/presentation/game_page.dart';
 import '../features/home/presentation/home_page.dart';
 import '../features/result/presentation/result_page.dart';
@@ -8,15 +9,16 @@ abstract class AppRouter {
   static const kSelectGame = '/SelectGame';
   static const kGamePage = '/GamePage';
   static const kResultPage = '/ResultPage';
+  static const kComingSoonPage = '/ComingSoonPage';
 
   static final router = GoRouter(
     routes: [
       GoRoute(
-        path: kSelectGame,
+        path: '/',
         builder: (context, state) => const HomePage(),
       ),
       GoRoute(
-        path: '/',
+        path: kSelectGame,
         builder: (context, state) => const SelectGame(),
       ),
       GoRoute(
@@ -26,6 +28,10 @@ abstract class AppRouter {
       GoRoute(
         path: kResultPage,
         builder: (context, state) => const ResultPage(),
+      ),
+      GoRoute(
+        path: kComingSoonPage,
+        builder: (context, state) => const ComingSoonPage(),
       ),
     ],
   );
