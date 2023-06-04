@@ -2,15 +2,9 @@
 
 Unbeatable tic tac toe with AI using minimax algorithm .
 
-## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![1](https://github.com/mido4315/TicTacToe/assets/96996503/70c31465-5109-41e8-abe0-497de630efa3)
+![2](https://github.com/mido4315/TicTacToe/assets/96996503/eab6abc2-78ef-4ba9-8bc4-ca23aada631b)
+![3](https://github.com/mido4315/TicTacToe/assets/96996503/47eec9d0-dfa0-4ae3-8cf9-dc04d7216cae)
+![4](https://github.com/mido4315/TicTacToe/assets/96996503/28196890-f531-42cb-80f4-8c77664998e1)
+![5](https://github.com/mido4315/TicTacToe/assets/96996503/fde15970-1bd3-480e-968a-9c2b76caf275)
